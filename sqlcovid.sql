@@ -44,7 +44,7 @@ order by 1,2
 -- Countries with Highest Infection Rate compared to Population
 
 Select d.Location, v.Population, MAX(d.total_cases) as HighestInfectionCount, 
-Max((d.total_cases/v.population))*100 as PercentPopulationInfected
+Max((d.total_cases/v.population)*100) as PercentPopulationInfected
 From Covid_Death as d 
 join covid_vac as v on d.location =v.location and d.date=v.date where d.continent is not null
 Group by d.Location, v.Population
